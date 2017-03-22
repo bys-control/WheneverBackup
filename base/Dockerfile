@@ -3,7 +3,7 @@ MAINTAINER ByS Control "info@bys-control.com.ar"
 
 # Instalo gemas para manejo de backups
 RUN apk add --update build-base && \
-gem install backup && \
+gem install whenever backup && \
 apk del build-base
 
-CMD cron && tail -f /home/app/Backup/log/backup.log
+CMD cron && tail -f /root/Backup/log/backup.log

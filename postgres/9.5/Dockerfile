@@ -1,7 +1,8 @@
 FROM byscontrol/wheneverbackup:base
 MAINTAINER ByS Control "info@bys-control.com.ar"
 
-RUN apk add "postgresql-client<9.6"
+RUN echo "@3.4 http://dl-cdn.alpinelinux.org/alpine/v3.4/main" >> /etc/apk/repositories && \
+apk add --update "postgresql-client@3.4<=9.5.6-r0"
 
 ONBUILD ADD . /root/Backup
 ONBUILD RUN cd /root/Backup && whenever --update-crontab

@@ -6,4 +6,4 @@ RUN apk add --update build-base && \
 gem install whenever backup && \
 apk del build-base
 
-CMD cron && tail -f /root/Backup/log/backup.log
+CMD crond -b -d 8 && tail -f /root/Backup/log/backup.log

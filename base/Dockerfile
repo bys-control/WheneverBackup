@@ -5,7 +5,8 @@ MAINTAINER ByS Control "info@bys-control.com.ar"
 RUN apk add --update build-base openssl tar && \
 gem install whenever backup && \
 apk del build-base && \
-rm -rf /var/cache/apk/*
+rm -rf /var/cache/apk/* && \
+mkdir -p /root/Backup/log
 
 CMD crond -b -d 8 && \
 touch /root/Backup/log/backup.log && \
